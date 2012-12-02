@@ -6,5 +6,5 @@ App.store = DS.Store.create
   adapter: DS.RESTAdapter.create
     bulkCommit: false
     mappings:
-      emails: 'App.Email'
+      emails: 'App.EmailModel'
 module.exports = App
