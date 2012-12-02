@@ -1,0 +1,12 @@
+{
+  "name": "fred-site",
+  "description": "site for fred.timme.co",
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee-script": "*",
+    "express": "*",
+    "mongoose": "*",
+    "async": "*",
+    "debug": "*"
+  }
+}

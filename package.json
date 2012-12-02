@@ -1,0 +1,8 @@
+{
+  "name": "FredSite",
+  "description": "site for dad",
+  "version": "0.0.1",
+  "dependencies": {
+    "brunch": "*"
+  }
+}
