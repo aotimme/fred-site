@@ -11,7 +11,7 @@ exports.log = (req, res, next) ->
 exports.all = (req, res) ->
   Email.find (err, emails) ->
     debug "Retrieved #{emails.length} emails"
-    res.send emails
+    res.send emails: emails
 
 exports.post = (req, res) ->
   email = new Email
@@ -27,7 +27,7 @@ exports.one = (req, res) ->
       res.send 404
     else
       debug "Email #{req.params.id} retrieved"
-      res.send email
+      res.send emails: [email]
 
 exports.delete = (req, res) ->
   async.waterfall [
