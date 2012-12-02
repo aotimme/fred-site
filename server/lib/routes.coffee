@@ -27,7 +27,7 @@ exports.one = (req, res) ->
       res.send 404
     else
       debug "Email #{req.params.id} retrieved"
-      res.send emails: [email]
+      res.send email: email
 
 exports.delete = (req, res) ->
   async.waterfall [
