@@ -49,13 +49,13 @@ App.Router = Em.Router.extend
           .connectOutlet 'emails', {emails}
 
 
-    email: Em.Route.extend
-      route: '/emails/:id'
+      email: Em.Route.extend
+        route: '/:id'
 
-      doHome: (router, event) -> router.transitionTo 'home'
-      
-      connectOutlets: (router, context) ->
-        email = App.EmailModel.find context.id
+        doHome: (router, event) -> router.transitionTo 'home'
+        
+        connectOutlets: (router, context) ->
+          email = App.EmailModel.find context.id
 
-        router.get('applicationController')
-          .connectOutlet 'email', email
+          router.get('applicationController')
+            .connectOutlet 'email', email
