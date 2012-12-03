@@ -26,8 +26,6 @@ MONTHS = [
 ]
 
 App.EmailModel = DS.Model.extend
-  primaryKey: -> '_id'
-
   # attributes
   _id  : DS.attr 'string'
   title: DS.attr 'string'
@@ -35,9 +33,7 @@ App.EmailModel = DS.Model.extend
   date : DS.attr 'date'
 
   dateString: (->
-    console.log @get('date')
     date    = new Date @get('date')
-    console.log date
     day     = DAYS_OF_WEEK[date.getDay()]
     dayNum  = date.getDate()
     month   = MONTHS[date.getMonth()]
