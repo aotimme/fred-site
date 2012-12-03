@@ -1,11 +1,12 @@
 App = require 'app'
 
 App.Router = Em.Router.extend
-
   enableLogging: true
 
-  root: Em.Route.extend
+  doHome: (router, event) -> router.transitionTo 'home'
         
+  root: Em.Route.extend
+
     index: Em.Route.extend
       route: '/'
       redirectsTo: 'home'
@@ -26,8 +27,6 @@ App.Router = Em.Router.extend
     bob: Em.Route.extend
       route: '/bob'
 
-      doHome: (router, event) -> router.transitionTo 'home'
-
       connectOutlets: (router, context) ->
 
         theMan = App.BobModel.create().setProperties
@@ -43,8 +42,6 @@ App.Router = Em.Router.extend
 
       index: Ember.Route.extend
         route: '/'
-
-        doHome: (router, event) -> router.transitionTo 'home'
 
         showEmail: Ember.Route.transitionTo 'emails.email'
 
