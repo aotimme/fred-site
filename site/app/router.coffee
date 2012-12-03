@@ -60,4 +60,4 @@ App.Router = Em.Router.extend
           email = App.EmailModel.find context.id
 
           router.get('applicationController')
-            .connectOutlet 'email', {email}
+            .connectOutlet 'email', email

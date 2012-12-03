@@ -1,8 +1,11 @@
-{{#if email}}
-  <h2>{{email.title}}</h2>
-  <p>{{email.dateString}}</p>
+{{#if controller}}
+  <h2>{{title}}</h2>
+  <p>
+    {{dateString}}
+    <a class="btn btn-small" {{action doClick target="view"}}>alert date</a>
+  </p>
   <hr/>
-  <p>{{breakLines email.text}}</p>
+  <p>{{breakLines text}}</p>
   <a class="btn" {{action gotoEmails}}>&laquo; all emails</a>
 {{else}}
   <h2>Loading...</h2>
