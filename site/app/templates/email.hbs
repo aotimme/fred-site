@@ -1,5 +1,9 @@
-<h2>{{title}}</h2>
-<p>{{dateString}}</p>
-<hr/>
-<p>{{breakLines text}}</p>
-<a class="btn" {{action gotoEmails}}>&laquo; all emails</a>
+{{#if email}}
+  <h2>{{email.title}}</h2>
+  <p>{{email.dateString}}</p>
+  <hr/>
+  <p>{{breakLines email.text}}</p>
+  <a class="btn" {{action gotoEmails}}>&laquo; all emails</a>
+{{else}}
+  <h2>Loading...</h2>
+{{/if}}
