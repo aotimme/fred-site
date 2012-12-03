@@ -43,19 +43,21 @@ App.Router = Em.Router.extend
 
       doHome: (router, event) -> router.transitionTo 'home'
 
+      showEmail: Ember.Route.transitionTo 'email'
+
       connectOutlets: (router, context) ->
-        emails = App.EmailModel.find()
         router.get('applicationController')
-          .connectOutlet 'emails', {emails}
+          .connectOutlet 'emails', emails: App.EmailModel.find()
 
 
-      email: Em.Route.extend
-        route: '/:id'
+    email: Em.Route.extend
+      route: '/emails/:id'
 
-        doHome: (router, event) -> router.transitionTo 'home'
-        
-        connectOutlets: (router, context) ->
-          email = App.EmailModel.find context.id
+      gotoEmails: (router, event) -> router.transitionTo 'emails'
+      
+      connectOutlets: (router, context) ->
+        console.log router, context
+        email = App.EmailModel.find context.id
 
-          router.get('applicationController')
-            .connectOutlet 'email', email
+        router.get('applicationController')
+          .connectOutlet 'email', email
