@@ -14,28 +14,12 @@ App.Router = Em.Router.extend
     home: Em.Route.extend
       route: '/home'
             
-      doBob: (router, event) ->
-        router.transitionTo 'bob'
-
       gotoEmails: (router, event) ->
         router.transitionTo 'emails.index'
 
       connectOutlets: (router, context) ->
         router.get('applicationController')
           .connectOutlet 'home'
-
-    bob: Em.Route.extend
-      route: '/bob'
-
-      connectOutlets: (router, context) ->
-
-        theMan = App.BobModel.create().setProperties
-          firstName: 'bob'
-          lastName: 'marley'
-          lyrics: 'no woman no cry!'
-
-        router.get('applicationController')
-          .connectOutlet 'bob', theMan
 
     emails: Em.Route.extend
       route: '/emails'

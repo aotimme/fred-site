@@ -2,6 +2,5 @@
 
 require 'views/application'
 require 'views/home'
-require 'views/bob'
 require 'views/email'
 require 'views/emails'

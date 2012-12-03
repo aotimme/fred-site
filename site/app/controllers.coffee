@@ -2,6 +2,5 @@
 
 require 'controllers/application'
 require 'controllers/home'
-require 'controllers/bob'
 require 'controllers/email'
 require 'controllers/emails'
