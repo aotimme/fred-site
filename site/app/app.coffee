@@ -2,7 +2,7 @@
 
 App = Em.Application.create()
 App.store = DS.Store.create
-  revision: 9
+  revision: 8
   adapter: DS.RESTAdapter.create
     bulkCommit: false
     mappings:
