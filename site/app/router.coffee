@@ -4,6 +4,9 @@ App.Router = Em.Router.extend
   enableLogging: true
 
   doHome: (router, event) -> router.transitionTo 'home'
+
+  gotoEmails: (router, event) -> router.transitionTo 'emails.index'
+
         
   root: Em.Route.extend
 
@@ -14,9 +17,6 @@ App.Router = Em.Router.extend
     home: Em.Route.extend
       route: '/home'
             
-      gotoEmails: (router, event) ->
-        router.transitionTo 'emails.index'
-
       connectOutlets: (router, context) ->
         router.get('applicationController')
           .connectOutlet 'home'
@@ -33,12 +33,9 @@ App.Router = Em.Router.extend
           router.get('applicationController')
             .connectOutlet 'emails', emails: App.EmailModel.find()
 
-
       email: Em.Route.extend
         route: '/:id'
 
-        gotoEmails: (router, event) -> router.transitionTo 'emails'
-        
         connectOutlets: (router, context) ->
           console.log router, context
           email = App.EmailModel.find context.id
