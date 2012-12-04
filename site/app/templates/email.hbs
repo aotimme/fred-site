@@ -5,7 +5,10 @@
     <a class="btn btn-small" {{action doClick target="view"}}>alert date</a>
   </p>
   <hr/>
-  <p>{{breakLines text}}</p>
+  {{! TODO: figure out why I need to check for `text` }}
+  {{#if text}}
+    <p>{{breakLines text}}</p>
+  {{/if}}
   <a class="btn" {{action gotoEmails}}>&laquo; all emails</a>
 {{else}}
   <h2>Loading...</h2>

@@ -19,7 +19,7 @@ App.Router = Em.Router.extend
             
       connectOutlets: (router, context) ->
         router.get('applicationController')
-          .connectOutlet 'home'
+          .connectOutlet 'main', 'home'
 
     emails: Em.Route.extend
       route: '/emails'
@@ -31,7 +31,7 @@ App.Router = Em.Router.extend
 
         connectOutlets: (router, context) ->
           router.get('applicationController')
-            .connectOutlet 'emails', emails: App.EmailModel.find()
+            .connectOutlet 'main', 'emails', emails: App.EmailModel.find()
 
       email: Em.Route.extend
         route: '/:id'
@@ -41,4 +41,4 @@ App.Router = Em.Router.extend
           email = App.EmailModel.find context.id
 
           router.get('applicationController')
-            .connectOutlet 'email', email
+            .connectOutlet 'main', 'email', email

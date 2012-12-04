@@ -33,6 +33,7 @@ App.EmailModel = DS.Model.extend
   date : DS.attr 'date'
 
   dateString: (->
+    return '' if not @get('date')
     date    = new Date @get('date')
     day     = DAYS_OF_WEEK[date.getDay()]
     dayNum  = date.getDate()
