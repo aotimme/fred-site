@@ -7,6 +7,8 @@ App.Router = Em.Router.extend
 
   gotoEmails: (router, event) -> router.transitionTo 'emails.index'
 
+  doAdd: (router, event) -> router.transitionTo 'emails.create'
+
 
   root: Em.Route.extend
 
@@ -48,3 +50,14 @@ App.Router = Em.Router.extend
             .connectOutlet 'main', 'email', email
           router.get('applicationController')
             .connectOutlet 'navbar', 'navbar'
+
+      create: Em.Route.extend
+        route: '/create'
+        
+        connectOutlets: (router, context) ->
+          console.log 'emails create'
+
+          email = App.EmailModel.createRecord title: 'My Title'
+
+          router.get('applicationController')
+            .connectOutlet 'main', 'createEmail', email
