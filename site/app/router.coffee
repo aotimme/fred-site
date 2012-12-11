@@ -7,6 +7,8 @@ App.Router = Em.Router.extend
 
   gotoEmails: (router, event) -> router.transitionTo 'emails.index'
 
+  doAdd: (router, event) -> router.transitionTo 'emails.create'
+
 
   root: Em.Route.extend
 
@@ -40,11 +42,37 @@ App.Router = Em.Router.extend
       email: Em.Route.extend
         route: '/:id'
 
+        destroyItem: (router, event) ->
+          email = event.context
+          console.log 'deleting email', email
+          email.deleteRecord()
+          App.store.commit()
+          router.transitionTo 'emails.index'
+
         connectOutlets: (router, context) ->
           console.log router, context
           email = App.EmailModel.find context.id
 
           router.get('applicationController')
             .connectOutlet 'main', 'email', email
+          router.get('applicationController')
+            .connectOutlet 'navbar', 'navbar'
+
+      create: Em.Route.extend
+        route: '/create'
+
+        createItem: (router, event) ->
+          email = event.context
+          console.log 'creating email', email, email.get 'title'
+          App.store.commit()    # because already created
+          router.transitionTo 'emails.index'
+        
+        connectOutlets: (router, context) ->
+          console.log 'emails create'
+
+          email = App.EmailModel.createRecord title: 'My Title'
+
+          router.get('applicationController')
+            .connectOutlet 'main', 'createEmail', email
           router.get('applicationController')
             .connectOutlet 'navbar', 'navbar'

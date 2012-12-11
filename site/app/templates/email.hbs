@@ -1,4 +1,4 @@
-{{#if controller}}
+{{#if content}}
   <h2>{{title}}</h2>
   <p>
     {{dateString}}
@@ -10,6 +10,7 @@
     <p>{{breakLines text}}</p>
   {{/if}}
   <a class="btn" {{action gotoEmails}}>&laquo; all emails</a>
+  <a class="btn btn-small btn-danger pull-right" {{action destroyItem content}}>x</a>
 {{else}}
   <h2>Loading...</h2>
 {{/if}}

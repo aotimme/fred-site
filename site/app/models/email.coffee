@@ -48,7 +48,10 @@ App.EmailModel = DS.Model.extend
     "#{day[0...3]}, #{month} #{dayNum}, #{year} - #{hours}:#{minutes} #{ampm}"
   ).property('date')
 
-  didLoad: -> console.log "Loaded email:", @get('title')
+  didLoad: -> console.log "didLoad email:", @get('title')
+
+  didUpdate: -> console.log "didUpdate email:", @get('title')
+  didCreate: -> console.log "didCreate email:", @get('title')
 
 .reopenClass
   url: 'email'

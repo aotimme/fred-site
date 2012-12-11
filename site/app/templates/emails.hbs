@@ -1,6 +1,6 @@
 <ul>
   {{#each email in emails}}
-  <li><a {{action showEmail email href=true}}>{{email.title}}</a></li>
+  <li><a {{action showEmail email href=true}}>{{email.title}} ({{email.id}})</a></li>
   {{/each}}
 </ul>
 <a class="btn" {{action doHome}}>&laquo; back home</a>

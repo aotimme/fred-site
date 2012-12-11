@@ -14,9 +14,10 @@ exports.all = (req, res) ->
     res.send emails: emails
 
 exports.post = (req, res) ->
+  emailJSON = req.body.email
   email = new Email
-    title: req.body.title
-    text : req.body.text
+    title: emailJSON.title
+    text : emailJSON.text
   email.save (err) ->
     res.send 200
 

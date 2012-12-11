@@ -1,0 +1,27 @@
+<legend>Post an Email</legend>
+
+<div class="control-group">
+  <label class="control-label">
+    Title
+  </label>
+  <div class="controls">
+    {{view Ember.TextField valueBinding="title"}}
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">
+    Email Text
+  </label>
+  <div class="controls">
+    {{view Ember.TextArea valueBinding="text"}}
+  </div>
+</div>
+
+<div class="control-group">
+  <div class="controls">
+    <button class="btn btn-success" {{action createItem content}}>
+      Save
+    </button>
+  </div>
+</div>
