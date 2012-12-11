@@ -18,8 +18,8 @@ exports.post = (req, res) ->
   email = new Email
     title: emailJSON.title
     text : emailJSON.text
-  email.save (err) ->
-    res.send 200
+  email.save (err, email) ->
+    res.send email: email
 
 exports.one = (req, res) ->
   Email.findById req.params.id, (err, email) ->
