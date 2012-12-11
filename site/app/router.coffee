@@ -42,6 +42,13 @@ App.Router = Em.Router.extend
       email: Em.Route.extend
         route: '/:id'
 
+        destroyItem: (router, event) ->
+          email = event.context
+          console.log 'deleting email', email
+          email.deleteRecord()
+          App.store.commit()
+          router.transitionTo 'emails.index'
+
         connectOutlets: (router, context) ->
           console.log router, context
           email = App.EmailModel.find context.id
