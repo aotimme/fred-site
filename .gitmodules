@@ -1,3 +1,9 @@
 [submodule "site/bootstrap"]
 	path = site/bootstrap
 	url = git@github.com:twitter/bootstrap
+[submodule "site/ember.js"]
+	path = site/ember.js
+	url = git@github.com:emberjs/ember.js.git
+[submodule "site/ember-data"]
+	path = site/ember-data
+	url = git@github.com:emberjs/data.git
