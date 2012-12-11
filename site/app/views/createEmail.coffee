@@ -5,8 +5,3 @@ App.CreateEmailView = Em.View.extend
 
   templateName: require 'templates/createEmail'
   tagName: 'form'
-
-  submit: (event) ->
-    event.preventDefault()
-    console.log 'create email submit'
-    @get('controller').createRecord()

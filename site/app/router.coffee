@@ -60,6 +60,12 @@ App.Router = Em.Router.extend
 
       create: Em.Route.extend
         route: '/create'
+
+        createItem: (router, event) ->
+          email = event.context
+          console.log 'creating email', email, email.get 'title'
+          App.store.commit()    # because already created
+          router.transitionTo 'emails.index'
         
         connectOutlets: (router, context) ->
           console.log 'emails create'
@@ -68,3 +74,5 @@ App.Router = Em.Router.extend
 
           router.get('applicationController')
             .connectOutlet 'main', 'createEmail', email
+          router.get('applicationController')
+            .connectOutlet 'navbar', 'navbar'
