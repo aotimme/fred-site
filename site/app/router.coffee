@@ -1,4 +1,5 @@
 App = require 'app'
+debug = require('debug') 'DEBUG router'
 
 App.Router = Em.Router.extend
   enableLogging: true
@@ -44,13 +45,13 @@ App.Router = Em.Router.extend
 
         destroyItem: (router, event) ->
           email = event.context
-          console.log 'deleting email', email
+          debug 'deleting email', email
           email.deleteRecord()
           App.store.commit()
           router.transitionTo 'emails.index'
 
         connectOutlets: (router, context) ->
-          console.log router, context
+          debug router, context
           email = App.EmailModel.find context.id
 
           router.get('applicationController')
@@ -63,7 +64,7 @@ App.Router = Em.Router.extend
 
         createItem: (router, event) ->
           email = event.context
-          console.log 'creating email', email, email.get 'title'
+          debug 'creating email', email, email.get 'title'
           App.store.commit()    # because already created
           router.transitionTo 'emails.index'
 
@@ -71,7 +72,7 @@ App.Router = Em.Router.extend
           router.get('createEmailController').exit()
         
         connectOutlets: (router, context) ->
-          console.log 'emails create'
+          debug 'emails create'
 
           email = App.EmailModel.createRecord title: 'My Title'
 

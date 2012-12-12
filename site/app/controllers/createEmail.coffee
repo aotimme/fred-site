@@ -1,9 +1,10 @@
 App = require 'app'
+debug = require('debug') 'DEBUG CreateEmailController'
 
 App.CreateEmailController = Em.ObjectController.extend
   exit: ->
     email = @get 'content'
-    console.log 'email saving?', email.get 'isSaving'
+    debug 'email saving?', email.get 'isSaving'
     if not email.get 'isSaving'
-      console.log 'deleting created email'
+      debug 'deleting created email'
       email.deleteRecord()

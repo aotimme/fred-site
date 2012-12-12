@@ -1,4 +1,5 @@
 App = require 'app'
+debug = require('debug') 'DEBUG EmailModel'
 
 DAYS_OF_WEEK = [
   'Sunday'
@@ -64,9 +65,9 @@ App.EmailModel = DS.Model.extend
   ).property 'text'
 
 
-  didLoad: -> console.log "didLoad email:", @get('title')
-  didUpdate: -> console.log "didUpdate email:", @get('title')
-  didCreate: -> console.log "didCreate email:", @get('title')
+  didLoad  : -> debug "didLoad email:"  , @get('title')
+  didUpdate: -> debug "didUpdate email:", @get('title')
+  didCreate: -> debug "didCreate email:", @get('title')
 
 .reopenClass
   url: 'email'
