@@ -32,6 +32,15 @@ App.EmailModel = DS.Model.extend
   text : DS.attr 'string'
   date : DS.attr 'date'
 
+  dateOnlyString: (->
+    return '' if not @get('date')
+    date    = new Date @get('date')
+    dayNum  = date.getDate()
+    month   = MONTHS[date.getMonth()]
+    year    = date.getFullYear()
+    "#{month} #{dayNum}, #{year}"
+  ).property 'date'
+
   dateString: (->
     return '' if not @get('date')
     date    = new Date @get('date')
@@ -48,8 +57,14 @@ App.EmailModel = DS.Model.extend
     "#{day[0...3]}, #{month} #{dayNum}, #{year} - #{hours}:#{minutes} #{ampm}"
   ).property('date')
 
-  didLoad: -> console.log "didLoad email:", @get('title')
 
+  shortText: (->
+    return '' if not @get 'text'
+    @get('text')[0...100]
+  ).property 'text'
+
+
+  didLoad: -> console.log "didLoad email:", @get('title')
   didUpdate: -> console.log "didUpdate email:", @get('title')
   didCreate: -> console.log "didCreate email:", @get('title')
 
