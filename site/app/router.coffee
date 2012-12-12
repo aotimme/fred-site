@@ -66,6 +66,9 @@ App.Router = Em.Router.extend
           console.log 'creating email', email, email.get 'title'
           App.store.commit()    # because already created
           router.transitionTo 'emails.index'
+
+        exit: (router) ->
+          router.get('createEmailController').exit()
         
         connectOutlets: (router, context) ->
           console.log 'emails create'
