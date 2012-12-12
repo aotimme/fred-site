@@ -5,3 +5,4 @@ App.CreateEmailView = Em.View.extend
 
   templateName: require 'templates/createEmail'
   tagName: 'form'
+  classNames: 'form-horizontal'
