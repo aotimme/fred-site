@@ -1,2 +1,6 @@
 exports.DB   = 'mongodb://localhost/fred'
-exports.PORT = 3005
+
+if process.env.ENV is 'prod'
+  exports.PORT = 3000
+else
+  exports.PORT = 3005
